@@ -1,0 +1,89 @@
+How to use the terminal to upload to GitHub:
+
+Make sure to have installed git on your computer
+Install Homebrew
+Install Sublime Text
+Make a 
+
+mkdir = Makes a new folder
+touch = makes a new file
+subl = opens a file with sublime text
+
+Pushing new/edited files:
+	navigate to your directory
+	git status 
+		(see what changes have been made to you project)
+	git add .
+	git commit -m "Enter your comment here"
+	git push origin main 
+		(replace main with your branch name) 
+
+Updating Finder after changing/adding on GitHub:
+	Go to the repository
+	fetch origin
+	merge origin/main
+		(if the repository is in another branch, replace "main with the name of it")
+
+Clone the GitHub Repository (Open a repository from GitHub onto your finder as a new folder)
+	git clone https://github.com/BrynhildurTrausta/repositoryname
+
+
+Using AWS:
+
+	Making a key-pair:
+		ssh-keygen = Generates a new SSH key par which is a public and 		private rsa key pair
+		cd ~/.ssh = goes into that directory (~ goes into a directory)
+		cat id_rsa.pub = prints the key pair in text on the screen.
+			Next step is to copy that text, go to aws, import key pair and paste it
+
+
+
+Using VIM to make a html/php file in terminal:
+	
+	Tip: Make a file in your home directory then copy it to your desired loation
+
+	Make an instance on ec2
+	Connect to it through terminal
+		ssh ec2-user@18.234.72.125 = connects the instance
+	Install the httpd
+		sudo yum install httpd = installs everything you need
+	Start the service 
+		sudo systmectl start httpd.service
+	Check the status 
+		sudo systmectl status httpd.service
+	If using PHP
+		sudo yum install php = installs everything needed for php
+		sudo systemctl restart httpd.service = need to restart the service for php to work
+	Go in the correct directory
+		pwd = sees what directory you are in
+		ls /var/www/html/ = sees what files are in that directory
+		sudo vim /var/www/html/index.php = opens up a file in a text editor
+	Using vim
+		i = insert
+		esc = escapes the insert
+		:w = writes/saves the file
+		:wq = saves and quits
+		:qq = quits but doesn't save
+	Download the file to another directory
+		cp /var/www/html/index.php . = copies the file to the clipboard. (the . indicates that all files in the chosen directory)
+		scp ec2-user@3.95.151.195:~/index.php . = secure copy from the written directory to (the dot) current directory. (The normal user)
+
+
+Extra things using the command line:
+	ls -la = shows how many bytes each item in that folder has and when it 		was made
+	cat filename = prints the text file on the screen on the terminal
+	sudo = does the next command as the administrated
+	yum = package manager
+	systemctl = system that manages the services on the machine
+	scp = secure copy
+	vim filename = is a text editor
+	wget = command line program to download things through http
+	yum search php = seeing what php to download
+	yum search php | grep apache
+	sudo yum install php
+	ab (name of website) = see how much your webpage takes up (do it in your own directory)
+	ab -n 10 -c 2 (name of webpage) = -n how many times, -c how many clients at one time. Shows more information about percentage of requests serverd within a certain time. n >= c. n ( number of requests) c (cumcurrency/clients)
+	
+
+
+
